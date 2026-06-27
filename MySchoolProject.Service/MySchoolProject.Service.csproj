@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="4.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MySchoolProject.Date\MySchoolProject.Date.csproj" />
+    <ProjectReference Include="..\MySchoolProject.Infrustructure\MySchoolProject.Infrustructure.csproj" />
+  </ItemGroup>
+
+</Project>

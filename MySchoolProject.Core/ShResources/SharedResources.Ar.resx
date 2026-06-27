@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="NotFound" xml:space="preserve">
+    <value>غير متوفر</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>هذا الحقل مطلوب</value>
+  </data>
+  <data name="NotFoundId" xml:space="preserve">
+    <value>هذا المستخدم غير موجود</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>تم الحذف بنجاح</value>
+  </data>
+  <data name="BadRequest" xml:space="preserve">
+    <value>عمليه غير ناجحه</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>عمليه  ناجحه</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>تم الاضافة بنجاح</value>
+  </data>
+  <data name="NotEmpty" xml:space="preserve">
+    <value>يجب ان لا يكون فارغ</value>
+  </data>
+  <data name="IsExist" xml:space="preserve">
+    <value>موجود بالفعل</value>
+  </data>
+  <data name="UnAuthorized" xml:space="preserve">
+    <value>لا تمتلك الصلاحية للوصل لتلك المصادر</value>
+  </data>
+  <data name="UnProcessableEntity" xml:space="preserve">
+    <value>يوجد مشكله في صياغة الداتا او نوعها عن المطلوب</value>
+  </data>
+  <data name="Updated" xml:space="preserve">
+    <value>تم التعديل بنجاح</value>
+  </data>
+  <data name="NotNull" xml:space="preserve">
+    <value>يجب ان لا يكون فارغ </value>
+  </data>
+  <data name="PasswordNotEqualConfirmePassword" xml:space="preserve">
+    <value>يجب تطابق الباسورد و تاكيد الباسورد</value>
+  </data>
+  <data name="EmaliIsExist" xml:space="preserve">
+    <value>هذا الايميل موجود بالفعل</value>
+  </data>
+  <data name="UserNameIsExist" xml:space="preserve">
+    <value>هذا المستخدم موجود بالفعل</value>
+  </data>
+  <data name="FaildToAddUser" xml:space="preserve">
+    <value>حدثت عمله خطا عند إضافه المستخدم</value>
+  </data>
+  <data name="UpdatedFailed" xml:space="preserve">
+    <value>حدث خطا اثناء التحديث</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>كلمه المرور</value>
+  </data>
+  <data name="UserNameIsNotExist" xml:space="preserve">
+    <value>هذا المستخدم غير موجود</value>
+  </data>
+  <data name="UserNameOrPasswordNotCorrect" xml:space="preserve">
+    <value>اسم المستخدم او كلمه المرور غير صحيحة</value>
+  </data>
+  <data name="refreshTokenisexpired" xml:space="preserve">
+    <value>التوكن هذا منتهي</value>
+  </data>
+  <data name="AlgorithmsIsWrong" xml:space="preserve">
+    <value>هناك خطاء فى الخوازرميه</value>
+  </data>
+  <data name="Tokenisnotexpired" xml:space="preserve">
+    <value>رمز الوصول ليس منتهى</value>
+  </data>
+  <data name="refreshTokenisnotFound" xml:space="preserve">
+    <value>رمز الوصول غير موجود</value>
+  </data>
+  <data name="TokenisExpired" xml:space="preserve">
+    <value>رمز الوصول  منتهى</value>
+  </data>
+  <data name="AddFaild" xml:space="preserve">
+    <value>حدث خطا</value>
+  </data>
+  <data name="ThisRoleIsUsed" xml:space="preserve">
+    <value>هذه الصلاحيه مستخدمه</value>
+  </data>
+  <data name="NotFoundUserId" xml:space="preserve">
+    <value>هذا المستخدم غير موجود</value>
+  </data>
+  <data name="FialedToRemoveOldRoles" xml:space="preserve">
+    <value>فشل حذف الصلاحيات القديمه</value>
+  </data>
+  <data name="FialedToAddNewRoles" xml:space="preserve">
+    <value>فشل اضافه الصلاحيات الجديده</value>
+  </data>
+  <data name="FialedToUpdateUserRoles" xml:space="preserve">
+    <value>فشل تحديث صلاحيات المستخدم</value>
+  </data>
+  <data name="FialedToRemoveOldClaim" xml:space="preserve">
+    <value>فشل حذف الصلاحيات الاستخدام القديمه</value>
+  </data>
+  <data name="FialedToAddNewClaim" xml:space="preserve">
+    <value>فشل اضافه الصلاحيات الاستخدام الجديده</value>
+  </data>
+  <data name="FialedToUpdateUserClaim" xml:space="preserve">
+    <value>فشل تحديث صلاحيات الاستخدام المستخدم</value>
+  </data>
+  <data name="EmailMustNotBeEmpty" xml:space="preserve">
+    <value>الايميل يجب ان لا يكون فارغ </value>
+  </data>
+  <data name="EmailMustNotBeNull" xml:space="preserve">
+    <value>الايميل يجب ان لا يكون له قيمه</value>
+  </data>
+  <data name="sendEmailFailed" xml:space="preserve">
+    <value>فشل ارسال الايميل</value>
+  </data>
+  <data name="EmailNotConfirmed" xml:space="preserve">
+    <value>الايميل ليس مؤكد</value>
+  </data>
+  <data name="TryToRegisterAgain" xml:space="preserve">
+    <value>اعد المحاول مره اخري</value>
+  </data>
+  <data name="ErrorWhenConfirmEmail" xml:space="preserve">
+    <value>حدثت عمله خطا عندتاكيد الايميل</value>
+  </data>
+  <data name="ConfirmeEmailSuccess" xml:space="preserve">
+    <value>تجحه عمليه تاكيد الاميل</value>
+  </data>
+</root>
