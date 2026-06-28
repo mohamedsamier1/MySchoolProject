@@ -45,6 +45,9 @@
             public const string SignIn = Prefix + "SignIn";
             public const string RefreshToken = Prefix + "RefreshToken";
             public const string ValidateToken = Prefix + "ValidateToken";
+            public const string SendToResetPasswordByEmail = Prefix + "SendToResetPasswordByEmail";
+            public const string ConfirmResetPasswordCode = Prefix + "ConfirmResetPasswordCode";
+            public const string NewPassword = Prefix + "NewPassword";
             public const string ConfirmEmail = "/Api/Authentication/ConfirmEmail";
         }
         public static class Emails

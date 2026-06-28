@@ -246,4 +246,31 @@
   <data name="ConfirmeEmailSuccess" xml:space="preserve">
     <value>ConfirmeEmailSuccess</value>
   </data>
+  <data name="TryToSendEmailAgain" xml:space="preserve">
+    <value>Try To Send Email Again</value>
+  </data>
+  <data name="ErrorInUpdateUser" xml:space="preserve">
+    <value>ErrorInUpdateUser</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>UserNotFound</value>
+  </data>
+  <data name="TryAgainInAnotherTime" xml:space="preserve">
+    <value>Try Again In Another Time</value>
+  </data>
+  <data name="CheakTheCode" xml:space="preserve">
+    <value>Cheak The Code</value>
+  </data>
+  <data name="SuccessCode" xml:space="preserve">
+    <value>Success Code</value>
+  </data>
+  <data name="InvalidCode" xml:space="preserve">
+    <value>Invalid Code</value>
+  </data>
+  <data name="NotFoundEmail" xml:space="preserve">
+    <value>Not Found Email</value>
+  </data>
+  <data name="TryToResetPasswordAgain" xml:space="preserve">
+    <value>Try To Reset Password Again</value>
+  </data>
 </root>

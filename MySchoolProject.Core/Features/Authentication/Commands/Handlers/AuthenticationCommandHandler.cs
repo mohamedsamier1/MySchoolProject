@@ -13,7 +13,9 @@ namespace MySchoolProject.Core.Features.Authentication.Commands.Handlers
 {
     public class AuthenticationCommandHandler : ResponseHandler,
                                                 IRequestHandler<SignInCommand, Response<JwtAuthResult>>,
-                                                IRequestHandler<RefreshTokenCommand, Response<JwtAuthResult>>
+                                                IRequestHandler<RefreshTokenCommand, Response<JwtAuthResult>>,
+                                                IRequestHandler<ResetPasswordCommand, Response<string>>,
+                                                IRequestHandler<NewResetPasswordCommand, Response<string>>
     {
         #region filde
         public readonly IMapper _mapper;
@@ -39,12 +41,11 @@ namespace MySchoolProject.Core.Features.Authentication.Commands.Handlers
             var user = await _userManager.FindByNameAsync(request.UserName);
             //return the user name not found 
             if (user == null) return BadRequest<JwtAuthResult>(_stringLocalizer[SharedResourcesKeys.UserNameIsNotExist]);
-
             //try to sign in 
             var signinresult = await _signInManager.CheckPasswordSignInAsync(user, request.Password, false);
-            if (!user.EmailConfirmed) return BadRequest<JwtAuthResult>(_stringLocalizer[SharedResourcesKeys.EmailNotConfirmed]);
             //if failed return passord is wrong
             if (!signinresult.Succeeded) return BadRequest<JwtAuthResult>(_stringLocalizer[SharedResourcesKeys.UserNameOrPasswordNotCorrect]);
+            if (!user.EmailConfirmed) return BadRequest<JwtAuthResult>(_stringLocalizer[SharedResourcesKeys.EmailNotConfirmed]);
             //generate token 
             var result = await _authenticationService.GetJwTToken(user);
             return Success(result);
@@ -80,6 +81,42 @@ namespace MySchoolProject.Core.Features.Authentication.Commands.Handlers
             if (user == null) return NotFound<JwtAuthResult>(_stringLocalizer[SharedResourcesKeys.NotFoundId]);
             var result = await _authenticationService.GetRefreshToken(user, jwtToken, expiryDate, request.RefreshToken);
             return Success(result);
+        }
+
+        public async Task<Response<string>> Handle(ResetPasswordCommand request, CancellationToken cancellationToken)
+        {
+            var result = await _authenticationService.SendResetPassworedCode(request.Email);
+            switch (result)
+            {
+                case "UserNotFound":
+                    return BadRequest<string>(_stringLocalizer[SharedResourcesKeys.UserNotFound]);
+                case "ErrorInUpdateUser":
+                    return BadRequest<string>(_stringLocalizer[SharedResourcesKeys.ErrorInUpdateUser]);
+                case "Success":
+                    return Success<string>(_stringLocalizer[SharedResourcesKeys.Success]);
+                case "Failed":
+                    return BadRequest<string>(_stringLocalizer[SharedResourcesKeys.TryToSendEmailAgain]);
+                default:
+                    return BadRequest<string>(_stringLocalizer[SharedResourcesKeys.TryAgainInAnotherTime]);
+
+            }
+        }
+
+        public async Task<Response<string>> Handle(NewResetPasswordCommand request, CancellationToken cancellationToken)
+        {
+            var result = await _authenticationService.NewResetPassword(request.Email, request.NewPassword);
+            switch (result)
+            {
+                case "NotFoundEmail":
+                    return BadRequest<string>(_stringLocalizer[SharedResourcesKeys.NotFoundEmail]);
+                case "Success":
+                    return Success<string>(_stringLocalizer[SharedResourcesKeys.Success]);
+                case "Failed":
+                    return BadRequest<string>(_stringLocalizer[SharedResourcesKeys.TryToResetPasswordAgain]);
+                default:
+                    return BadRequest<string>(_stringLocalizer[SharedResourcesKeys.TryAgainInAnotherTime]);
+
+            }
         }
         #endregion
     }
