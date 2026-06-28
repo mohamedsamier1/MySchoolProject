@@ -3,6 +3,7 @@
     public static class SharedResourcesKeys
     {
         public const string Required = "Required";
+        public const string TryToResetPasswordAgain = "TryToResetPasswordAgain";
         public const string NotFound = "NotFound";
         public const string NotFoundId = "NotFoundId";
         public const string Deleted = "Deleted";
@@ -28,6 +29,10 @@
         public const string EmailNotConfirmed = "EmailNotConfirmed";
         public const string ErrorWhenConfirmEmail = "ErrorWhenConfirmEmail";
         public const string ConfirmeEmailSuccess = "ConfirmeEmailSuccess";
+        public const string UserNotFound = "UserNotFound";
+        public const string ErrorInUpdateUser = "ErrorInUpdateUser";
+        public const string TryToSendEmailAgain = "TryToSendEmailAgain";
+        public const string TryAgainInAnotherTime = "TryAgainInAnotherTime";
 
 
         public const string AlgorithmsIsWrong = "AlgorithmsIsWrong";
@@ -48,6 +53,11 @@
         public const string EmailMustNotBeEmpty = "EmailMustNotBeEmpty";
         public const string EmailMustNotBeNull = "EmailMustNotBeNull";
         public const string sendEmailFailed = "sendEmailFailed";
+
+        public const string NotFoundEmail = "NotFoundEmail";
+        public const string InvalidCode = "InvalidCode";
+        public const string SuccessCode = "SuccessCode";
+        public const string CheakTheCode = "CheakTheCode";
 
 
     }

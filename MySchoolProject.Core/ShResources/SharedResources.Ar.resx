@@ -246,4 +246,31 @@
   <data name="ConfirmeEmailSuccess" xml:space="preserve">
     <value>تجحه عمليه تاكيد الاميل</value>
   </data>
+  <data name="TryToSendEmailAgain" xml:space="preserve">
+    <value>اعد المحاول مره اخري</value>
+  </data>
+  <data name="ErrorInUpdateUser" xml:space="preserve">
+    <value>حدث خطا عند تحديث الايميل</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>هذا المستخدم غير موجود</value>
+  </data>
+  <data name="TryAgainInAnotherTime" xml:space="preserve">
+    <value>اعد المحاول مره اخري</value>
+  </data>
+  <data name="CheakTheCode" xml:space="preserve">
+    <value>تاكد من صحه الكود</value>
+  </data>
+  <data name="SuccessCode" xml:space="preserve">
+    <value>الكود صحيح</value>
+  </data>
+  <data name="InvalidCode" xml:space="preserve">
+    <value>الكود غير صحيح</value>
+  </data>
+  <data name="NotFoundEmail" xml:space="preserve">
+    <value>الايميل ليس موجود</value>
+  </data>
+  <data name="TryToResetPasswordAgain" xml:space="preserve">
+    <value>اعد المحاول تجدبد الباسورد مره اخري</value>
+  </data>
 </root>

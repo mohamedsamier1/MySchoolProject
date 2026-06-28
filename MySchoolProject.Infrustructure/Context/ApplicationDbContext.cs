@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using EntityFrameworkCore.EncryptColumn.Extension;
+using EntityFrameworkCore.EncryptColumn.Interfaces;
+using EntityFrameworkCore.EncryptColumn.Util;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MySchoolProject.Date.Entities;
@@ -9,10 +12,10 @@ namespace MySchoolProject.Infrustructure.Data
     public class ApplicationDbContext : IdentityDbContext<User, Role, int, IdentityUserClaim<int>, IdentityUserRole<int>, IdentityUserLogin<int>, IdentityRoleClaim<int>, IdentityUserToken<int>>
     {
 
-
+        private readonly IEncryptionProvider _encryptionProvider;
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-
+            _encryptionProvider = new GenerateEncryptionProvider("47f5d1312e654dfeb4ebc5ea48a8af96");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -34,7 +37,7 @@ namespace MySchoolProject.Infrustructure.Data
                        .WithOne(i => i.DepartmentManager)
                        .HasForeignKey<Department>(d => d.Instructor_ManagerId)
                        .OnDelete(DeleteBehavior.Restrict);
-
+            modelBuilder.UseEncryption(_encryptionProvider);
         }
         public DbSet<User> User { get; set; }
         public DbSet<Role> Role { get; set; }

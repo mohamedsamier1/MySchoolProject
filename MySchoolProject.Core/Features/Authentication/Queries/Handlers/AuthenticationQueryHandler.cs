@@ -9,7 +9,8 @@ namespace MySchoolProject.Core.Features.Authentication.Queries.Handlers
 {
     public class AuthenticationQueryHandler : ResponseHandler,
         IRequestHandler<AuthorizeUserQuery, Response<string>>,
-        IRequestHandler<ConfirmEmailQuery, Response<string>>
+        IRequestHandler<ConfirmEmailQuery, Response<string>>,
+        IRequestHandler<ConfirmResetPasswordQuery, Response<string>>
     {
 
         #region filde
@@ -40,6 +41,20 @@ namespace MySchoolProject.Core.Features.Authentication.Queries.Handlers
             var confirmEmail = await _authenticationService.ConfirmEmail(request.UserId, request.Code);
 
             return Success(confirmEmail);
+        }
+
+        public async Task<Response<string>> Handle(ConfirmResetPasswordQuery request, CancellationToken cancellationToken)
+        {
+            var result = await _authenticationService.ConfirmResetPassworedCode(request.Email, request.code);
+            switch (result)
+            {
+                case "NotFoundEmail": return BadRequest<string>(_stringLocalizer[SharedResourcesKeys.NotFoundEmail]);
+                case "InvalidCode": return BadRequest<string>(_stringLocalizer[SharedResourcesKeys.InvalidCode]);
+                case "SuccessCode": return Success<string>(_stringLocalizer[SharedResourcesKeys.SuccessCode]);
+                default:
+                    return BadRequest<string>(_stringLocalizer[SharedResourcesKeys.CheakTheCode]);
+
+            }
         }
         #endregion
     }

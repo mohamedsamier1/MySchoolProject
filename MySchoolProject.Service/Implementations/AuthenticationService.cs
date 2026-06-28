@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using MySchoolProject.Date.Entities.Identity;
 using MySchoolProject.Date.Helpers;
+using MySchoolProject.Infrustructure.Data;
 using MySchoolProject.Infrustructure.IRepositories;
 using MySchoolProject.Service.Abstracts;
 using System.IdentityModel.Tokens.Jwt;
@@ -18,15 +19,20 @@ namespace MySchoolProject.Service.Implementations
         private readonly JwtSettings _jwtSettings;
         private readonly UserManager<User> _userManager;
         private readonly IRefreshTokenRepository _refreshTokenRepository;
-
+        private readonly IEmailService _emailService;
+        private readonly ApplicationDbContext _applicationDbContext;
         public AuthenticationService(
             JwtSettings jwtSettings,
             IRefreshTokenRepository refreshTokenRepository,
-            UserManager<User> userManager)
+            UserManager<User> userManager,
+            IEmailService emailService,
+            ApplicationDbContext applicationDbContext)
         {
             _jwtSettings = jwtSettings;
             _refreshTokenRepository = refreshTokenRepository;
             _userManager = userManager;
+            _emailService = emailService;
+            _applicationDbContext = applicationDbContext;
         }
 
         #region JWT Generation
@@ -270,6 +276,72 @@ namespace MySchoolProject.Service.Implementations
             return $"Success - EmailConfirmed = {updatedUser.EmailConfirmed}";
         }
 
-        #endregion
+        public async Task<string> SendResetPassworedCode(string email)
+        {
+            var trans = await _applicationDbContext.Database.BeginTransactionAsync();
+            try
+            {
+                var user = await _userManager.FindByEmailAsync(email);
+                if (user == null) return "UserNotFound";
+                Random generator = new Random();
+                string randomNumber = generator.Next(0, 10000000).ToString("D6");
+                user.Code = randomNumber;
+                var updateresult = await _userManager.UpdateAsync(user);
+                if (!updateresult.Succeeded)
+                    return "ErrorInUpdateUser";
+                var message = "This Code To Reset Passwored :" + user.Code;
+                await _emailService.SendEmail(user.Email, message, "Reset Password");
+                await trans.CommitAsync();
+                return "Success";
+            }
+            catch (Exception)
+            {
+                await trans.RollbackAsync();
+                return "Failed";
+            }
+
+
+        }
+
+        public async Task<string> ConfirmResetPassworedCode(string email, string code)
+        {
+            // chesak for email 
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null) return "NotFoundEmail";
+            var usercode = user.Code;
+            if (usercode == code) return "SuccessCode";
+            return "InvalidCode";
+            //cheak for code 
+            //return 
+        }
+
+        public async Task<string> NewResetPassword(string email, string password)
+        {
+
+            var user = await _userManager.FindByEmailAsync(email);
+
+            if (user == null)
+                return "UserNotFound";
+
+            var removeResult = await _userManager.RemovePasswordAsync(user);
+
+            if (!removeResult.Succeeded)
+                return string.Join(", ", removeResult.Errors.Select(e => e.Description));
+
+            var addResult = await _userManager.AddPasswordAsync(user, password);
+
+            if (!addResult.Succeeded)
+                return string.Join(", ", addResult.Errors.Select(e => e.Description));
+
+            // اختبر مباشرة
+            var check = await _userManager.CheckPasswordAsync(user, password);
+
+            return check ? "Success" : "PasswordNotSaved";
+        }
+
+
     }
+
+    #endregion
+
 }
