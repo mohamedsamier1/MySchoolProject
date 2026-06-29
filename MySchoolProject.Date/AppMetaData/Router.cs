@@ -25,6 +25,8 @@
             public const string EditDepartment = Prefix + "Edit";
             public const string DeleteDepartment = Prefix + "Delete" + "{id}";
             public const string PaginatedDepartment = Prefix + "Paginated";
+            public const string GetDepartmentStudentCount = Prefix + "GetDepartmentStudentCount";
+            public const string GetDepartmentStudentCountById = Prefix + "GetDepartmentStudentCountById" + "{id}";
 
         }
         public static class UserRouting

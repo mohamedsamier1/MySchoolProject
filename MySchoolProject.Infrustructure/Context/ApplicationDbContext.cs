@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MySchoolProject.Date.Entities;
 using MySchoolProject.Date.Entities.Identity;
+using MySchoolProject.Date.Entities.Views;
 
 namespace MySchoolProject.Infrustructure.Data
 {
@@ -39,6 +40,7 @@ namespace MySchoolProject.Infrustructure.Data
                        .OnDelete(DeleteBehavior.Restrict);
             modelBuilder.UseEncryption(_encryptionProvider);
         }
+
         public DbSet<User> User { get; set; }
         public DbSet<Role> Role { get; set; }
         public DbSet<Student> students { get; set; }
@@ -49,5 +51,8 @@ namespace MySchoolProject.Infrustructure.Data
         public DbSet<Instructor> instructors { get; set; }
         public DbSet<InstructorSubject> instructorSubjects { get; set; }
         public DbSet<UserRefreshToken> UserRefreshToken { get; set; }
+        #region views
+        public DbSet<ViewDepartment> ViewDepartment { get; set; }
+        #endregion
     }
 }
