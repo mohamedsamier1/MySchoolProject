@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -210,7 +209,7 @@ namespace MySchoolProject.Infrustructure.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DNameAr = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DNameEn = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Instructor_ManagerId = table.Column<int>(type: "int", nullable: false)
+                    Instructor_ManagerId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MySchoolProject.APi.Base;
 using MySchoolProject.Core.Features.Students.Commands.Models;
 using MySchoolProject.Core.Features.Students.Queries.Models;
+using MySchoolProject.Core.Filters;
 using MySchoolProject.Date.AppMetaData;
 
 namespace SchoolMySchoolProjectProject.APi.Controllers
@@ -13,6 +14,8 @@ namespace SchoolMySchoolProjectProject.APi.Controllers
     public class StudentController : AppBaseController
     {
         #region End Point
+        [Authorize(Roles = "User")]
+        [ServiceFilter(typeof(AuthFilter))]
         [HttpGet(Router.StudentRouting.GetStudentlist)]
         public async Task<IActionResult> GetStuedntList()
         {
