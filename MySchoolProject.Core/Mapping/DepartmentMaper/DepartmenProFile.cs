@@ -7,6 +7,8 @@ namespace MySchoolProject.Core.Mapping.DepartmentMaper
         public DepartmenProFile()
         {
             GetDepartmentByIdMapping();
+            GetDepartemtStudentCount();
+            GetDepartmentStudentCountByIdMapping();
         }
     }
 }

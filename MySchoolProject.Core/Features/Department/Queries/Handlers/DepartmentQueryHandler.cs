@@ -7,12 +7,16 @@ using MySchoolProject.Core.Features.Department.Queries.Results;
 using MySchoolProject.Core.ShResources;
 using MySchoolProject.Core.Wrappers;
 using MySchoolProject.Date.Entities;
+using MySchoolProject.Date.Entities.Procedures;
 using MySchoolProject.Service.Abstracts;
 using System.Linq.Expressions;
 
 namespace MySchoolProject.Core.Features.Department.Queries.Handlers
 {
-    public class DepartmentQueryHandler : ResponseHandler, IRequestHandler<GetDepartmentByIdQuery, Response<GetDepartmentByIdResponse>>
+    public class DepartmentQueryHandler : ResponseHandler,
+                IRequestHandler<GetDepartmentByIdQuery, Response<GetDepartmentByIdResponse>>,
+                IRequestHandler<GetDepartemtStudentCountQuery, Response<List<GetDepartemtStudentCountResults>>>,
+                IRequestHandler<GetDepartmentStudentCounteByIdQuery, Response<GetDepartmentStudentCounteByIdResult>>
     {
         #region Filde
         private readonly IStringLocalizer<SharedResources> _stringLocalizer;
@@ -44,6 +48,24 @@ namespace MySchoolProject.Core.Features.Department.Queries.Handlers
             mapper.StudentList = paginatedlist;
             return Success(mapper);
         }
+
+        public async Task<Response<List<GetDepartemtStudentCountResults>>> Handle(GetDepartemtStudentCountQuery request, CancellationToken cancellationToken)
+        {
+            var viewDepartmentresult = await _departmentService.GetViewDepartment();
+            var mapper = _mapper.Map<List<GetDepartemtStudentCountResults>>(viewDepartmentresult);
+            return Success(mapper);
+        }
+
+        public async Task<Response<GetDepartmentStudentCounteByIdResult>> Handle(GetDepartmentStudentCounteByIdQuery request, CancellationToken cancellationToken)
+        {
+            var parameter = _mapper.Map<DepartmentStudentCountProcParameters>(request);
+            var prosresult = await _departmentService.GetDepartmentStudentCountProcs(parameter);
+            var result = _mapper.Map<GetDepartmentStudentCounteByIdResult>(prosresult.FirstOrDefault());
+            return Success(result);
+
+        }
+
+
         #endregion
     }
 }
