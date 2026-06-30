@@ -17,6 +17,7 @@ namespace MySchoolProject.Date.Entities
         public string? Position { get; set; }
         public int? SupervisorId { get; set; }
         public decimal Salary { get; set; }
+        public string? Image { get; set; }
         public int DId { get; set; }
         [ForeignKey(nameof(DId))]
         [InverseProperty(nameof(Department.Instructors))]

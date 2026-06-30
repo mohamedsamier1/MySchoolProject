@@ -2,9 +2,11 @@
 using MySchoolProject.Date.Entities.Views;
 using MySchoolProject.Infrustructure.InfrustructureBases;
 using MySchoolProject.Infrustructure.IRepositories;
+using MySchoolProject.Infrustructure.IRepositories.Functions;
 using MySchoolProject.Infrustructure.IRepositories.Procedures;
 using MySchoolProject.Infrustructure.IRepositories.Views;
 using MySchoolProject.Infrustructure.Repositories;
+using MySchoolProject.Infrustructure.Repositories.Functions;
 using MySchoolProject.Infrustructure.Repositories.Procedures;
 using MySchoolProject.Infrustructure.Repositories.Views;
 
@@ -26,6 +28,8 @@ namespace MySchoolProject.Infrustructure
             services.AddTransient<IViewRepository<ViewDepartment>, ViewDepartmentRepository>();
             //procedure
             services.AddTransient<IDepartmentStudentCountProcRepository, DepartmentStudentCountProcRepository>();
+            //function
+            services.AddTransient<IInstructorFunctionsRepository, InstructorFunctionsRepository>();
 
             return services;
         }
