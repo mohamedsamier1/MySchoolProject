@@ -273,4 +273,13 @@
   <data name="TryToResetPasswordAgain" xml:space="preserve">
     <value>Try To Reset Password Again</value>
   </data>
+  <data name="FailedInAdd" xml:space="preserve">
+    <value>Failed In Add</value>
+  </data>
+  <data name="FailedToUploudImage" xml:space="preserve">
+    <value>Failed To Uploud Image</value>
+  </data>
+  <data name="NoImage" xml:space="preserve">
+    <value>No Image</value>
+  </data>
 </root>

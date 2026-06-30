@@ -81,6 +81,7 @@ builder.Services.AddTransient<IUrlHelper>(x =>
     return factory.GetUrlHelper(actionContext);
 });
 builder.Services.AddTransient<AuthFilter>();
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
@@ -105,7 +106,7 @@ var options = app.Services.GetService<IOptions<RequestLocalizationOptions>>();
 app.UseRequestLocalization(options.Value);
 #endregion
 
-
+app.UseStaticFiles();
 app.UseCors(CORS);
 
 //app.UseCors(c => c.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());

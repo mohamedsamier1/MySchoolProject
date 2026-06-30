@@ -24,4 +24,8 @@
     <ProjectReference Include="..\MySchoolProject.Core\MySchoolProject.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>

@@ -273,4 +273,13 @@
   <data name="TryToResetPasswordAgain" xml:space="preserve">
     <value>اعد المحاول تجدبد الباسورد مره اخري</value>
   </data>
+  <data name="FailedInAdd" xml:space="preserve">
+    <value>عمليه غير ناجحه</value>
+  </data>
+  <data name="FailedToUploudImage" xml:space="preserve">
+    <value>فشل تحميل الصوره</value>
+  </data>
+  <data name="NoImage" xml:space="preserve">
+    <value>لايوجد صوره</value>
+  </data>
 </root>

@@ -19,7 +19,9 @@
     <Folder Include="Features\Department\Commands\Models\" />
     <Folder Include="Features\Department\Commands\Validatiors\" />
     <Folder Include="Features\Emails\Queries\" />
+    <Folder Include="Features\Instructors\Queries\Result\" />
     <Folder Include="Mapping\DepartmentMaper\CommandMapping\" />
+    <Folder Include="Mapping\InstructorMapper\Queries\" />
   </ItemGroup>
 
   <ItemGroup>

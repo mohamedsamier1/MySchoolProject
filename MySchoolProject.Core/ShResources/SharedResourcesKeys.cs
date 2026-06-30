@@ -33,6 +33,9 @@
         public const string ErrorInUpdateUser = "ErrorInUpdateUser";
         public const string TryToSendEmailAgain = "TryToSendEmailAgain";
         public const string TryAgainInAnotherTime = "TryAgainInAnotherTime";
+        public const string NoImage = "NoImage";
+        public const string FailedToUploudImage = "FailedToUploudImage";
+        public const string FailedInAdd = "FailedInAdd";
 
 
         public const string AlgorithmsIsWrong = "AlgorithmsIsWrong";
